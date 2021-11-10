@@ -22,14 +22,14 @@ Challenge for the "Backend development and APIs" module of [FreeCodeCamp.org](ht
 
 ## Usage examples:
 
-- [/api/2015-12-25](api/2015-12-25)
+- **/api/2015-12-25**
 
   Output: `{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}`
 
-- [/api/1451001600000](api/1451001600000)
+- **/api/1451001600000**
 
   Output: `{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}`
 
-- [/api/NULL](api/)
+- **/api/NULL**
 
   Output: current time in a JSON object
