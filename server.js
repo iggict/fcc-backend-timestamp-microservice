@@ -14,8 +14,27 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
 
-app.get("/api/hello", (req, res) => {
-  res.json({ greeting: "hello API" });
+app.get("/api/:dateString?", (req, res) => {
+  const dateString = req.params.dateString || new Date().toString();
+
+  let date = new Date();
+
+  // Check if timestamp
+  if (/^\d*$/.test(dateString)) {
+    date.setTime(dateString);
+  } else {
+    date = new Date(dateString);
+  }
+
+  // Check if valid date
+  if (date.getTime()) {
+    res.json({
+      unix: date.getTime(),
+      utc: date.toUTCString(),
+    });
+  } else {
+    res.json({ error: "Invalid Date" });
+  }
 });
 
 const listener = app.listen(process.env.PORT || 3000, () => {
